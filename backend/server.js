@@ -30,7 +30,7 @@ app.use("/api/payments",paymentRoutes)
 app.use("/api/analytics",analyticsRoutes)
 
 if(process.env.NODE_ENV === "production"){
-    app.use(express.static(path.join(__dirname,"/frontend/dist",index.html)))
+    app.use(express.static(path.join(__dirname,"/frontend/dist")))
     //if the user goes for any ot route is not found in the backend routes then serve the index.html from the frontend
     app.get("*",(req,res) => {
         res.sendFile(path.resolve(__dirname,"frontend","dist","index.html"))
